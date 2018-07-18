@@ -11,10 +11,13 @@ import { ParentComponent } from './components/parent/parent.component';
 import { ChildComponent } from './components/child/child.component';
 
 // Services
+import { AuthService } from './services/auth.service';
 import { BackendService } from './services/backend.service';
+import { SessionService } from './services/session.service';
 
 // Pages
 import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { CommunicationComponent } from './pages/communication/communication.component';
 
@@ -25,6 +28,7 @@ import { CommunicationComponent } from './pages/communication/communication.comp
     HomeComponent,
     ContactComponent,
     CommunicationComponent,
+    LoginComponent,
     ParentComponent,
     ChildComponent
   ],
@@ -32,6 +36,7 @@ import { CommunicationComponent } from './pages/communication/communication.comp
     RouterModule.forRoot(
       [
         { path: '', component: HomeComponent },
+        { path: 'login', component: LoginComponent },
         { path: 'contact', component: ContactComponent },
         { path: 'communication', component: CommunicationComponent },
         { path: '**', redirectTo: '', pathMatch: 'full' }
@@ -43,7 +48,9 @@ import { CommunicationComponent } from './pages/communication/communication.comp
     HttpClientModule
   ],
   providers: [
-    BackendService
+    AuthService,
+    BackendService,
+    SessionService
   ],
   bootstrap: [AppComponent]
 })
