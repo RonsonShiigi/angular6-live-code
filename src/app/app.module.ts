@@ -2,12 +2,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // for input handling
 import { RouterModule } from '@angular/router'; // for routing
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ParentComponent } from './components/parent/parent.component';
 import { ChildComponent } from './components/child/child.component';
+
+// Services
+import { BackendService } from './services/backend.service';
 
 // Pages
 import { HomeComponent } from './pages/home/home.component';
@@ -35,9 +39,12 @@ import { CommunicationComponent } from './pages/communication/communication.comp
       { enableTracing: true } // this is for debugging only
     ),
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    BackendService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
