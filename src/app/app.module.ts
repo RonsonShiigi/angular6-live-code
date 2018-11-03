@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // for input handling
 import { RouterModule } from '@angular/router'; // for routing
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -19,6 +20,7 @@ import { SessionService } from './services/session.service';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ReactiveComponent } from './pages/reactive/reactive.component';
 import { CommunicationComponent } from './pages/communication/communication.component';
 
 @NgModule({
@@ -30,7 +32,8 @@ import { CommunicationComponent } from './pages/communication/communication.comp
     CommunicationComponent,
     LoginComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    ReactiveComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -38,6 +41,7 @@ import { CommunicationComponent } from './pages/communication/communication.comp
         { path: '', component: HomeComponent },
         { path: 'login', component: LoginComponent },
         { path: 'contact', component: ContactComponent },
+        { path: 'reactive', component: ReactiveComponent },
         { path: 'communication', component: CommunicationComponent },
         { path: '**', redirectTo: '', pathMatch: 'full' }
       ],
@@ -45,7 +49,8 @@ import { CommunicationComponent } from './pages/communication/communication.comp
     ),
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AuthService,
